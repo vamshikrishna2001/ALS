@@ -1,0 +1,89 @@
+[
+   {
+     "time": "2024-09-13T10:52:31.287241+05:30",
+     "disks_at_scanner": [
+       {
+         "katherinelangford-monitor-agentless-instance-sq54": [
+           {
+             "time": "2024-09-13T10:52:34.110334+05:30",
+             "scannerstate": "RUNNING",
+             "disks": [
+               {
+                 "Name": "persistent-disk-0",
+                 "Size": 10
+               }
+             ]
+           }
+         ]
+       }
+     ],
+     "als_snapshots": {
+       "snapshots": null,
+       "num_snapshots": 0
+     },
+     "als_disks": {
+       "disks": [
+         "katherinelangford-monitor-agentless-instance-sq54"
+       ],
+       "num_disks": 1
+     }
+   },
+   {
+     "time": "2024-09-13T10:52:37.984435+05:30",
+     "disks_at_scanner": [
+       {
+         "katherinelangford-monitor-agentless-instance-sq54": [
+           {
+             "time": "2024-09-13T10:52:40.348062+05:30",
+             "scannerstate": "RUNNING",
+             "disks": [
+               {
+                 "Name": "persistent-disk-0",
+                 "Size": 10
+               }
+             ]
+           }
+         ]
+       }
+     ],
+     "als_snapshots": {
+       "snapshots": null,
+       "num_snapshots": 0
+     },
+     "als_disks": {
+       "disks": [
+         "katherinelangford-monitor-agentless-instance-sq54"
+       ],
+       "num_disks": 1
+     }
+   },
+   {
+     "time": "2024-09-13T10:52:43.06258+05:30",
+     "disks_at_scanner": [
+       {
+         "katherinelangford-monitor-agentless-instance-sq54": [
+           {
+             "time": "2024-09-13T10:52:45.233427+05:30",
+             "scannerstate": "RUNNING",
+             "disks": [
+               {
+                 "Name": "persistent-disk-0",
+                 "Size": 10
+               }
+             ]
+           }
+         ]
+       }
+     ],
+     "als_snapshots": {
+       "snapshots": null,
+       "num_snapshots": 0
+     },
+     "als_disks": {
+       "disks": [
+         "katherinelangford-monitor-agentless-instance-sq54"
+       ],
+       "num_disks": 1
+     }
+   }
+ ]
