@@ -4,6 +4,9 @@ import (
 	"encoding/json"
 	"fmt"
 	"os"
+	"somethingof/Models"
+
+	"gorm.io/datatypes"
 )
 
 func CreateFile(Filename string, object interface{}) error {
@@ -25,4 +28,12 @@ func CreateFile(Filename string, object interface{}) error {
 	}
 	return err
 
+}
+
+func SerializeStateDict(stateDict map[string][]Models.DisksAtScanner) (datatypes.JSON, error) {
+	data, err := json.Marshal(stateDict)
+	if err != nil {
+		return nil, err
+	}
+	return datatypes.JSON(data), nil
 }

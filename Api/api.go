@@ -20,7 +20,7 @@ func DisksAttachedToScanner(computeService *compute.Service, projectID string, i
 	}
 	DiskObjs := []Models.DiskDetails{}
 	for _, disk := range instance.Disks {
-		fmt.Printf("  - Disk Name: %s, Device Name: %s, Type: %s ,size: %d\n", disk.Source, disk.DeviceName, disk.Type, disk.DiskSizeGb)
+		// fmt.Printf("  - Disk Name: %s, Device Name: %s, Type: %s ,size: %d\n", disk.Source, disk.DeviceName, disk.Type, disk.DiskSizeGb)
 		DiskObjs = append(DiskObjs, Models.DiskDetails{Name: disk.DeviceName, Size: disk.DiskSizeGb})
 
 	}
@@ -42,9 +42,9 @@ func SnapshotsCreatedByALS(computeService *compute.Service, ctx context.Context,
 	if len(snapshotsListResp.Items) == 0 {
 		fmt.Println("No snapshots found with the specified label.")
 	} else {
-		fmt.Println("Snapshots with the specified label:")
+		// fmt.Println("Snapshots with the specified label:")
 		for _, snapshot := range snapshotsListResp.Items {
-			fmt.Printf("Snapshot Name: %s, Creation Time: %s, Size: %d GB\n", snapshot.Name, snapshot.CreationTimestamp, snapshot.DiskSizeGb)
+			// fmt.Printf("Snapshot Name: %s, Creation Time: %s, Size: %d GB\n", snapshot.Name, snapshot.CreationTimestamp, snapshot.DiskSizeGb)
 			snapsList.Snapshots = append(snapsList.Snapshots, snapshot.Name)
 			snapsCounter += 1
 		}
@@ -69,7 +69,7 @@ func DiskCreatedByAls(computeService *compute.Service, ctx context.Context, proj
 	for _, disksScopedList := range disksListResp.Items {
 		if disksScopedList.Disks != nil {
 			for _, disk := range disksScopedList.Disks {
-				fmt.Printf("Disk Name: %s, Zone: %s, Size: %d GB\n", disk.Name, disk.Zone, disk.SizeGb)
+				// fmt.Printf("Disk Name: %s, Zone: %s, Size: %d GB\n", disk.Name, disk.Zone, disk.SizeGb)
 				diskslist.Disks = append(diskslist.Disks, disk.Name)
 				diskCount += 1
 			}
@@ -79,9 +79,9 @@ func DiskCreatedByAls(computeService *compute.Service, ctx context.Context, proj
 	return diskslist
 }
 
-func GetAllScannerIds(computeService *compute.Service, labelKey string, labelValue string, ctx context.Context, projectID string) []*Models.ScannerDetails {
+func GetAllScannerIds(computeService *compute.Service, labelKey string, labelValue string, ctx context.Context, projectID string) []Models.ScannerDetails {
 
-	scd := []*Models.ScannerDetails{}
+	scd := []Models.ScannerDetails{}
 	// Define the label filter in the format "labels.key=value"
 
 	filter := fmt.Sprintf("labels.%s=%s", labelKey, labelValue)
@@ -98,14 +98,14 @@ func GetAllScannerIds(computeService *compute.Service, labelKey string, labelVal
 		fmt.Println("No instances found with the specified label.")
 	} else {
 		// fmt.Println("ergreb", len(aggregatedListResp.Items))
-		fmt.Printf("Instances with label %s=%s:\n", labelKey, labelValue)
+		// fmt.Printf("Instances with label %s=%s:\n", labelKey, labelValue)
 		for _, instancesScopedList := range aggregatedListResp.Items {
 			if instancesScopedList.Instances != nil {
 				// fmt.Printf("Zone: %s\n", zone)
 				for _, instance := range instancesScopedList.Instances {
 					// fmt.Printf("  - Instance Name: %s, Instance ID: %d\n", instance.Name, instance.Id)
 					parts := strings.Split(instance.Zone, "/")
-					scd = append(scd, &Models.ScannerDetails{Name: instance.Name, Zone: strings.TrimPrefix(parts[len(parts)-1], "zones/")})
+					scd = append(scd, Models.ScannerDetails{Name: instance.Name, Zone: strings.TrimPrefix(parts[len(parts)-1], "zones/")})
 
 				}
 			}

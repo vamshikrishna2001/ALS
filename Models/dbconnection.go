@@ -3,7 +3,7 @@ package Models
 import (
 	"somethingof/Config"
 
-	"github.com/jinzhu/gorm"
+	"gorm.io/gorm"
 )
 
 var db *gorm.DB

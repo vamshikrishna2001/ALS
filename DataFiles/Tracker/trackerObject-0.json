@@ -1,26 +1,24 @@
 [
    {
-     "ID": 0,
-     "CreatedAt": "0001-01-01T00:00:00Z",
-     "UpdatedAt": "0001-01-01T00:00:00Z",
+     "ID": 1,
+     "CreatedAt": "2024-09-13T13:04:56.198739041Z",
+     "UpdatedAt": "2024-09-13T13:04:56.198739041Z",
      "DeletedAt": null,
-     "time": "2024-09-13T11:46:09.826122+05:30",
-     "disks_at_scanner": [
-       {
-         "katherinelangford-monitor-agentless-instance-sq54": [
-           {
-             "time": "2024-09-13T11:46:13.261895+05:30",
-             "scannerstate": "RUNNING",
-             "disks": [
-               {
-                 "Name": "persistent-disk-0",
-                 "Size": 10
-               }
-             ]
-           }
-         ]
-       }
-     ],
+     "time": "2024-09-13T13:04:54.411883095Z",
+     "disks_at_scanner": {
+       "katherinelangford-monitor-agentless-instance-sq54": [
+         {
+           "time": "2024-09-13T13:04:55.29060259Z",
+           "scannerstate": "RUNNING",
+           "disks": [
+             {
+               "Name": "persistent-disk-0",
+               "Size": 10
+             }
+           ]
+         }
+       ]
+     },
      "als_snapshots": {
        "snapshots": null,
        "num_snapshots": 0

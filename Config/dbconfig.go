@@ -1,23 +1,26 @@
 package Config
 
 import (
-	"github.com/jinzhu/gorm"
-	_ "github.com/jinzhu/gorm/dialects/postgres"
+	"gorm.io/driver/postgres"
+	"gorm.io/gorm"
 )
 
 var (
 	db *gorm.DB
 )
 
+// Initialize the database connection
 func init() {
-	d, err := gorm.Open("postgres", "host=localhost user=postgres dbname=postgres password=mysecretpassword sslmode=disable")
+	dsn := "host=localhost user=postgres dbname=postgres password=mysecretpassword sslmode=disable"
+	d, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
 	if err != nil {
-		panic(err)
+		panic("failed to connect database: " + err.Error())
 	}
 
 	db = d
 }
 
+// GetDB returns the database connection
 func GetDB() *gorm.DB {
 	return db
 }

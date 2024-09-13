@@ -4,6 +4,7 @@ import (
 	"time"
 
 	"github.com/jinzhu/gorm"
+	"gorm.io/datatypes"
 )
 
 // DisksAtScanner represents the state of disks at a given time.
@@ -28,11 +29,21 @@ type AlsDisks struct {
 // AlsTrackerObject contains all relevant tracking information.
 type AlsTrackerObject struct {
 	gorm.Model
-	Time           time.Time                     `json:"time"`
-	DisksAtScanner []map[string][]DisksAtScanner `json:"disks_at_scanner"`
-	AlsSnapshots   AlsSnapshots                  `json:"als_snapshots"`
-	AlsDisks       AlsDisks                      `json:"als_disks"`
+	Time time.Time `json:"time"`
+	// DisksAtScanner map[string][]DisksAtScanner `json:"disks_at_scanner"`
+	DisksAtScanner datatypes.JSON `json:"disks_at_scanner"`
+	AlsSnapshots   datatypes.JSON `json:"als_snapshots"`
+	AlsDisks       datatypes.JSON `json:"als_disks"`
 }
+
+// type AlsTrackerDBObject struct {
+// 	gorm.Model
+// 	Time time.Time `json:"time"`
+// 	// DisksAtScanner []map[string][]DisksAtScanner `json:"disks_at_scanner"`
+// 	DisksAtScanner datatypes.JSON `json:"disks_at_scanner"`
+// 	AlsSnapshots   AlsSnapshots   `json:"als_snapshots"`
+// 	AlsDisks       AlsDisks       `json:"als_disks"`
+// }
 
 // scanner object
 type ScannerDetails struct {
@@ -44,4 +55,8 @@ type ScannerDetails struct {
 type DiskDetails struct {
 	Name string
 	Size int64
+}
+
+func (AlsTrackerObject) TableName() string {
+	return "als_table"
 }
