@@ -1,0 +1,59 @@
+// Online Go compiler to run Golang program online
+// Print "Try programiz.pro" message
+
+package main
+
+import (
+	"fmt"
+// 	"sync"
+)
+
+func main() {
+    
+    ch1 := make(chan int)
+	ch2 := make(chan int)
+	ch3 := make(chan int)
+    
+    
+	for i := 1; i <= 10; i++ {
+// 		var wg sync.WaitGroup
+// 		wg.Add(3) // We have 3 tasks to run concurrently
+
+		// Create 3 channels for communicating results
+
+
+		fmt.Printf("Starting iteration %d\n", i)
+
+		// Task 1
+		go func(iter int, ch chan<- int) {
+// 			defer wg.Done()
+			result := iter * 2 // Simulate task 1 calculation
+			ch <- result
+		}(i, ch1)
+
+		// Task 2
+		go func(iter int, ch chan<- int) {
+// 			defer wg.Done()
+			result := iter * 3 // Simulate task 2 calculation
+			ch <- result
+		}(i, ch2)
+
+		// Task 3
+		go func(iter int, ch chan<- int) {
+// 			defer wg.Done()
+			result := iter * 4 // Simulate task 3 calculation
+			ch <- result
+		}(i, ch3)
+
+		// Collect results and print sum after all goroutines complete
+		
+// 		wg.Wait()
+			// Close the channels after the wait group is done
+
+		
+
+		// Get results from channels
+		sum := <-ch1 + <-ch2 + <-ch3
+		fmt.Printf("Sum of results for iteration %d: %d\n\n", i, sum)
+	}
+}

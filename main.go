@@ -45,7 +45,6 @@ func main() {
 
 		// TASK TWO
 		// Get instance IDs
-
 		go func(computeService *compute.Service, ctx context.Context, projectID string, ch chan<- map[string][]Models.DisksAtScanner) {
 			InstanceIDsList := Api.GetAllScannerIds(computeService, ctx, projectID)
 			stateDict := make(map[string][]Models.DisksAtScanner)
@@ -81,15 +80,16 @@ func main() {
 		}
 
 		// Save JSON files
-		if fileCounter%1 == 0 {
-			filename := fmt.Sprintf("./DataFiles/Tracker/trackerObject-%d.json", fileCounter)
-			Utils.CreateFile(filename, alsTracker)
+		if fileCounter%10 == 0 {
+			// filename := fmt.Sprintf("./DataFiles/Tracker/trackerObject-%d.json", fileCounter)
+			// Utils.CreateFile(filename, alsTracker)
 
-			filename = fmt.Sprintf("./DataFiles/ScannerState/StateDictObject-%d.json", fileCounter)
+			filename := fmt.Sprintf("./DataFiles/ScannerState/StateDictObject-%d.json", fileCounter)
 			Utils.CreateFile(filename, globalStateDict)
 		}
 
 		fileCounter += 1
 		fmt.Println("alsTracker: \n", alsTracker)
+		time.Sleep(3 * time.Minute)
 	}
 }
