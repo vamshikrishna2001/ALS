@@ -1,14 +1,14 @@
 [
    {
-     "ID": 1,
-     "CreatedAt": "2024-09-13T13:04:56.198739041Z",
-     "UpdatedAt": "2024-09-13T13:04:56.198739041Z",
+     "ID": 0,
+     "CreatedAt": "0001-01-01T00:00:00Z",
+     "UpdatedAt": "0001-01-01T00:00:00Z",
      "DeletedAt": null,
-     "time": "2024-09-13T13:04:54.411883095Z",
+     "time": "2024-09-13T17:54:32.212237651Z",
      "disks_at_scanner": {
        "katherinelangford-monitor-agentless-instance-sq54": [
          {
-           "time": "2024-09-13T13:04:55.29060259Z",
+           "time": "2024-09-13T17:54:33.049025098Z",
            "scannerstate": "RUNNING",
            "disks": [
              {

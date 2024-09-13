@@ -1,6 +1,7 @@
 package Models
 
 import (
+	"somethingof/Config"
 	"time"
 
 	"github.com/jinzhu/gorm"
@@ -58,5 +59,5 @@ type DiskDetails struct {
 }
 
 func (AlsTrackerObject) TableName() string {
-	return "als_table"
+	return Config.TABLE_NAME
 }

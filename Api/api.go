@@ -79,10 +79,13 @@ func DiskCreatedByAls(computeService *compute.Service, ctx context.Context, proj
 	return diskslist
 }
 
-func GetAllScannerIds(computeService *compute.Service, labelKey string, labelValue string, ctx context.Context, projectID string) []Models.ScannerDetails {
+func GetAllScannerIds(computeService *compute.Service, ctx context.Context, projectID string) []Models.ScannerDetails {
 
 	scd := []Models.ScannerDetails{}
 	// Define the label filter in the format "labels.key=value"
+
+	labelKey := Config.UPTYCS_SCANNER_LABEL_KEY
+	labelValue := Config.UPTYCS_SCANNER_LABEL_VALUE
 
 	filter := fmt.Sprintf("labels.%s=%s", labelKey, labelValue)
 

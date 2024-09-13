@@ -3,10 +3,13 @@ package Utils
 import (
 	"encoding/json"
 	"fmt"
+	"log"
 	"os"
+	"somethingof/Config"
 	"somethingof/Models"
 
 	"gorm.io/datatypes"
+	"gorm.io/gorm"
 )
 
 func CreateFile(Filename string, object interface{}) error {
@@ -30,10 +33,22 @@ func CreateFile(Filename string, object interface{}) error {
 
 }
 
-func SerializeStateDict(stateDict map[string][]Models.DisksAtScanner) (datatypes.JSON, error) {
-	data, err := json.Marshal(stateDict)
-	if err != nil {
-		return nil, err
+// storeAlsTracker saves the alsTracker object into the database
+func StoreAlsTracker(db *gorm.DB, alsTracker Models.AlsTrackerObject) error {
+	// for i := range alsTracker {
+	// Save the record to the DB
+	if err := db.Table(Config.TABLE_NAME).Create(&alsTracker).Error; err != nil {
+		return err
+		// }
 	}
-	return datatypes.JSON(data), nil
+	return nil
+}
+
+// marshalDisksAtScanner converts the map to JSON for database storage
+func MarshalDisksAtScanner(stateDict interface{}) datatypes.JSON {
+	jsonData, err := json.Marshal(stateDict)
+	if err != nil {
+		log.Fatalf("Failed to marshal DisksAtScanner: %v", err)
+	}
+	return datatypes.JSON(jsonData)
 }
