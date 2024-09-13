@@ -1,0 +1,24 @@
+{
+   "katherinelangford-monitor-agentless-instance-sq54": [
+     {
+       "time": "2024-09-13T11:17:32.005526+05:30",
+       "scannerstate": "RUNNING",
+       "disks": [
+         {
+           "Name": "persistent-disk-0",
+           "Size": 10
+         }
+       ]
+     },
+     {
+       "time": "2024-09-13T11:17:36.736073+05:30",
+       "scannerstate": "RUNNING",
+       "disks": [
+         {
+           "Name": "persistent-disk-0",
+           "Size": 10
+         }
+       ]
+     }
+   ]
+ }

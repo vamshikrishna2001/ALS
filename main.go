@@ -2,13 +2,12 @@ package main
 
 import (
 	"context"
-	"encoding/json"
 	"fmt"
 	"log"
-	"os"
 	"somethingof/Api"
 	"somethingof/Config"
 	"somethingof/Models"
+	"somethingof/Utils"
 	"time"
 
 	"google.golang.org/api/compute/v1"
@@ -32,6 +31,8 @@ func main() {
 
 	globalStateDict := make(map[string][]Models.DisksAtScanner)
 	alsTracker := []Models.AlsTrackerObject{}
+	fileCounter := 0
+
 	for i := 0; i < 3; i++ {
 		alsTracker = append(alsTracker, Models.AlsTrackerObject{})
 
@@ -47,26 +48,22 @@ func main() {
 		alsTracker[i].AlsDisks = Api.DiskCreatedByAls(computeService, ctx, projectID)
 		alsTracker[i].AlsSnapshots = Api.SnapshotsCreatedByALS(computeService, ctx, projectID)
 
+		if fileCounter%1 == 0 {
+			filename := fmt.Sprintf("./DataFiles/Tracker/trackerObject-%d.json", fileCounter)
+			Utils.CreateFile(filename, alsTracker)
+
+			filename = fmt.Sprintf("./DataFiles/ScannerState/StateDictObject-%d.json", fileCounter)
+			Utils.CreateFile(filename, globalStateDict)
+
+		}
+
+		// time.Sleep(5 * time.Minute)
+		fileCounter += 1
+
 	}
 	fmt.Println("Global ", globalStateDict)
 	fmt.Println("state ", alsTracker)
-	jsonData, err := json.MarshalIndent(alsTracker, " ", "  ") // Indented for better readability
-	if err != nil {
-		fmt.Println("Error marshaling struct to JSON:", err)
-		return
-	}
 
 	// Create a JSON file
-	file, err := os.Create("disk_info.json")
-	if err != nil {
-		fmt.Println("Error creating JSON file:", err)
-		return
-	}
-	defer file.Close()
 
-	// Write the JSON data to the file
-	_, err = file.Write(jsonData)
-	if err != nil {
-		fmt.Println("Error writing to file:", err)
-	}
 }
