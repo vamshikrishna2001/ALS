@@ -7,6 +7,11 @@ toolchain go1.23.1
 require google.golang.org/api v0.197.0
 
 require (
+	github.com/jinzhu/inflection v1.0.0 // indirect
+	github.com/lib/pq v1.1.1 // indirect
+)
+
+require (
 	cloud.google.com/go/auth v0.9.3 // indirect
 	cloud.google.com/go/auth/oauth2adapt v0.2.4 // indirect
 	cloud.google.com/go/compute/metadata v0.5.0 // indirect
@@ -18,6 +23,7 @@ require (
 	github.com/google/uuid v1.6.0 // indirect
 	github.com/googleapis/enterprise-certificate-proxy v0.3.4 // indirect
 	github.com/googleapis/gax-go/v2 v2.13.0 // indirect
+	github.com/jinzhu/gorm v1.9.16
 	go.opencensus.io v0.24.0 // indirect
 	go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp v0.54.0 // indirect
 	go.opentelemetry.io/otel v1.29.0 // indirect

@@ -52,6 +52,9 @@ func main() {
 			filename := fmt.Sprintf("./DataFiles/Tracker/trackerObject-%d.json", fileCounter)
 			Utils.CreateFile(filename, alsTracker)
 
+			db := Config.GetDB()
+			db.Create(alsTracker)
+
 			filename = fmt.Sprintf("./DataFiles/ScannerState/StateDictObject-%d.json", fileCounter)
 			Utils.CreateFile(filename, globalStateDict)
 

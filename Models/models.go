@@ -2,6 +2,8 @@ package Models
 
 import (
 	"time"
+
+	"github.com/jinzhu/gorm"
 )
 
 // DisksAtScanner represents the state of disks at a given time.
@@ -25,6 +27,7 @@ type AlsDisks struct {
 
 // AlsTrackerObject contains all relevant tracking information.
 type AlsTrackerObject struct {
+	gorm.Model
 	Time           time.Time                     `json:"time"`
 	DisksAtScanner []map[string][]DisksAtScanner `json:"disks_at_scanner"`
 	AlsSnapshots   AlsSnapshots                  `json:"als_snapshots"`

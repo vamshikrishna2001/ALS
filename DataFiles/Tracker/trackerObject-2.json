@@ -1,11 +1,15 @@
 [
    {
-     "time": "2024-09-13T11:17:28.116624+05:30",
+     "ID": 0,
+     "CreatedAt": "0001-01-01T00:00:00Z",
+     "UpdatedAt": "0001-01-01T00:00:00Z",
+     "DeletedAt": null,
+     "time": "2024-09-13T11:46:09.826122+05:30",
      "disks_at_scanner": [
        {
          "katherinelangford-monitor-agentless-instance-sq54": [
            {
-             "time": "2024-09-13T11:17:30.595107+05:30",
+             "time": "2024-09-13T11:46:13.261895+05:30",
              "scannerstate": "RUNNING",
              "disks": [
                {
@@ -29,12 +33,16 @@
      }
    },
    {
-     "time": "2024-09-13T11:17:33.065734+05:30",
+     "ID": 0,
+     "CreatedAt": "0001-01-01T00:00:00Z",
+     "UpdatedAt": "0001-01-01T00:00:00Z",
+     "DeletedAt": null,
+     "time": "2024-09-13T11:46:14.994314+05:30",
      "disks_at_scanner": [
        {
          "katherinelangford-monitor-agentless-instance-sq54": [
            {
-             "time": "2024-09-13T11:17:35.317871+05:30",
+             "time": "2024-09-13T11:46:16.273682+05:30",
              "scannerstate": "RUNNING",
              "disks": [
                {
@@ -58,12 +66,16 @@
      }
    },
    {
-     "time": "2024-09-13T11:17:37.904187+05:30",
+     "ID": 0,
+     "CreatedAt": "0001-01-01T00:00:00Z",
+     "UpdatedAt": "0001-01-01T00:00:00Z",
+     "DeletedAt": null,
+     "time": "2024-09-13T11:46:17.984857+05:30",
      "disks_at_scanner": [
        {
          "katherinelangford-monitor-agentless-instance-sq54": [
            {
-             "time": "2024-09-13T11:17:39.978343+05:30",
+             "time": "2024-09-13T11:46:19.572921+05:30",
              "scannerstate": "RUNNING",
              "disks": [
                {
